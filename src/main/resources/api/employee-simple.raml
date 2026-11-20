@@ -1,0 +1,44 @@
+#%RAML 1.0
+title: employee-simple
+version: v1
+baseUri: http://localhost:8081/api
+
+/employees:
+  get:
+    description: Get all employees
+    responses:
+      200:
+        body:
+          application/json:
+            example:
+              [
+                {
+                  "id": 101,
+                  "name": "Arun",
+                  "department": "IT"
+                },
+                {
+                  "id": 102,
+                  "name": "Rahul",
+                  "department": "HR"
+                }
+              ]
+
+  post:
+    description: Create a new employee
+    body:
+      application/json:
+        example:
+          {
+            "id": 103,
+            "name": "John",
+            "department": "Finance"
+          }
+    responses:
+      201:
+        body:
+          application/json:
+            example:
+              {
+                "message": "Employee created successfully"
+              }
