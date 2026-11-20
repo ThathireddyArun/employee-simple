@@ -3,11 +3,11 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>aef0329d-8db3-4351-b7e6-6f79fd6f75ab</groupId>
-	<artifactId>employee-simple</artifactId>
+	<artifactId>employee-simple-impl</artifactId>
 	<version>1.0.0-SNAPSHOT</version>
 	<packaging>mule-application</packaging>
 
-	<name>employee-simple</name>
+	<name>employee-simple-impl</name>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
