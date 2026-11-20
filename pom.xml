@@ -2,7 +2,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>com.mycompany</groupId>
+	<groupId>aef0329d-8db3-4351-b7e6-6f79fd6f75ab</groupId>
 	<artifactId>employee-simple</artifactId>
 	<version>1.0.0-SNAPSHOT</version>
 	<packaging>mule-application</packaging>
@@ -29,6 +29,23 @@
 				<artifactId>mule-maven-plugin</artifactId>
 				<version>${mule.maven.plugin.version}</version>
 				<extensions>true</extensions>
+				    <configuration>
+				        <cloudhub2Deployment>
+				            <uri>https://anypoint.mulesoft.com</uri>
+				            <provider>MC</provider>
+				            <environment>Sandbox</environment>
+				            <target>Cloudhub-US-East-2</target>
+				            <muleVersion>4.13.2</muleVersion>
+				            <releaseChannel>EDGE</releaseChannel>
+				            <javaVersion>17</javaVersion>
+				            <connectedAppClientId>${env.ANYPOINT_CLIENT_ID}</connectedAppClientId>
+				            <connectedAppClientSecret>${env.ANYPOINT_CLIENT_SECRET}</connectedAppClientSecret>
+				            <connectedAppGrantType>client_credentials</connectedAppGrantType>
+				            <applicationName>employee-api-arun</applicationName>
+				            <replicas>1</replicas>
+				            <vCores>0.1</vCores>
+				        </cloudhub2Deployment>
+    			</configuration>
 			</plugin>
 		</plugins>
 	</build>
@@ -80,5 +97,12 @@
 			</snapshots>
 		</pluginRepository>
 	</pluginRepositories>
-
+<distributionManagement>
+    <repository>
+        <id>anypoint-exchange-v3</id>
+        <name>Anypoint Exchange</name>
+        <url>https://maven.anypoint.mulesoft.com/api/v3/organizations/${project.groupId}/maven</url>
+        <layout>default</layout>
+    </repository>
+</distributionManagement>
 </project>
